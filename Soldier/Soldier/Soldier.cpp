@@ -1,6 +1,11 @@
 ﻿#include <iostream>
-
+#include "soldiers.h"
 int main()
 {
-    std::cout << "Hello World!\n";
+    Soldiers test(10);
+    test.print();
+    test.sort();
+    cout << '\n';
+    test.print();
+
 }
