@@ -11,18 +11,32 @@ Soldiers::Soldiers(int n) : n(n)
 	}
 }
 
-void Soldiers::sort()
+void Soldiers::sort(bool por)
 {
+	m.lock();
 	for (int i = 0; i < n-1; i++)
 	{
 		for (int j = 0; j < n - 1 - i; j++)
 		{
-			if (vec[j].h > vec[j + 1].h)
+			if (por)
 			{
-				swap(vec[j], vec[j + 1]);
+				if (vec[j].h > vec[j + 1].h)
+				{
+					swap(vec[j], vec[j + 1]);
+				}
 			}
+			else
+			{
+				if (vec[j].h < vec[j + 1].h)
+				{
+					swap(vec[j], vec[j + 1]);
+				}
+
+			}
+			
 		}
 	}
+	m.unlock();
 }
 
 void Soldiers::print()
@@ -31,5 +45,6 @@ void Soldiers::print()
 	{
 		cout << vec[i].h << ' ';
 	}
+	cout << '\n';
 }
 

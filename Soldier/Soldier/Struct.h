@@ -3,4 +3,5 @@
 struct soldier
 {
 	int h;
+	int weight;
 };
